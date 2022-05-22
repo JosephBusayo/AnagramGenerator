@@ -1,18 +1,17 @@
 from itertools import permutations
-from importlib import resources
 
 
-class anagramSolver :    
+def load_words():
+    vowels = ('a', 'e', 'i', 'o', 'u', 'y')
+    with open('words_alpha.txt') as word_file:
+        all_words = set(word_file.read().split()) #set to remove duplicates
+        #remove words without vowels
+        english_words = [word for letter in vowels for word in all_words if letter in word]
+    return english_words
+
+class AnagramSolver :    
     def __init__(self, word):
         self.word = word
-        
-    def load_words(self):
-        vowels = ('a', 'e', 'i', 'o', 'u', 'y')
-        with open('words_alpha.txt') as word_file:
-            all_words = set(word_file.read().split()) #set to remove duplicates
-            #remove words without vowels
-            english_words = [word for letter in vowels for word in all_words if letter in word]
-        return english_words
 
     def permutate_string(self):
         res = []
@@ -22,7 +21,7 @@ class anagramSolver :
         return perm
 
     def get_anagram(self):
-        valid_words = (self.load_words()) #removing possible duplicates
+        valid_words = (load_words()) #removing possible duplicates
         perm_list = (self.permutate_string())
         
         #eleminating two letter words and words greater than length of the string
@@ -30,5 +29,3 @@ class anagramSolver :
         result = [i for i in perm_list if i in possible_words]
         
         return (set(result))
-
-
