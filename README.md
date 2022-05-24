@@ -89,16 +89,20 @@ You must have Python >=3.7 installed
    git clone https://github.com/JosephBusayo/AnagramGenerator.git
    ```
 2. Install the package
-   ```sh
-   cd anagram_generator
-   pip install .
+    ```python: 
+    use 
+    from anagram_generator import anagramSolver
+    pip install currently returningan error
    ```
+  
+  
+ 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE EXAMPLES
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
